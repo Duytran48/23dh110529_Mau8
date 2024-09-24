@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/Masterlayout.cshtml";
+}
+<html>
+<head>
+    <title>Payment</title>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <script language="Javascript">
+        function CalculateTotal() {
+            var dg = parseFloat(document.getElementById("iPrice").value);
+            var sl = parseFloat(document.getElementById("iQuantity").value);
+
+         
+            if (dg < 0)
+                document.getElementById("err_Price").innerHTML = "Don gia >= 0";
+            if (sl < 1 || sl > 10)
+                document.getElementById("err_Quantity").innerHTML = "sluong nam trong khoang [1;10]";
+            else
+                window.document.getElementById("lbTotal").value = dg * sl;
+        }
+    </script>
+</head>
+<body>
+    <form name="shoppingcart" method="get">
+        Don gia <input type="number" id="iPrice" name="Price" min="0"
+                       onchange="CalculateTotal();"
+                       />
+        <span id="err_Price" style="color:red;">  </span>
+        so luong <input type="number" id="iQuantity" name="quantity" min="1" max="10" 
+                        onchange="CalculateTotal();" required
+                        @*onchange="lbTotal.value = parseFloat(iPrice.value) * parseFloat(iQuantity.value)*@ 
+                        />
+        <span id="err_Quantity" style="color:red;" >  </span>
+        thanh tien <input type="number" id="lbTotal" name="Total" readonly>
+    </form>
+</body>
+</html>
+

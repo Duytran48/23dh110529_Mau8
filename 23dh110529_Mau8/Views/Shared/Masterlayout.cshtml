@@ -1,0 +1,74 @@
+﻿<style type="text/css">
+    html {font-size:16px;
+          font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    body {
+       background-color:#808080
+    }
+    #container {
+        border:2px solid #ffffff;
+        border-radius:10px;
+    }
+    header {
+        background-color:#0026ff;
+        border:1px #000000;
+        padding:5px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .logo img {
+        height:50px
+    }
+    nav ul {
+        list-style-type:none;
+        display:flex;
+        font-size:1.2rem;
+    }
+    nav ul li{
+        margin-left:20px;
+    }
+        nav ul li a {
+            text-decoration:none;
+            color:palevioletred;
+            font-weight:200;
+        }
+    section {
+        background-color:white;
+        min-height:500px;
+    }
+</style>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="logo">
+                <img src="~/Content/image/apple.jpeg" alt="apple" />
+            </div>
+            <div> <nav>
+                      <ul>
+                          <li><a href="~/Home/Trangchu"> Home </a></li>
+                          <li><a href="~/Product/ProductDetail"> Product </a></li>
+                          <li><a href="~/Product/Cart"> Cart </a></li>
+                          <li><a href="~/Home/Contact"> Contact </a></li>
+                      </ul>
+                 </nav>
+            </div>
+        </header>
+        <section>          
+                @RenderBody()             
+        </section>
+        <footer>
+            Chân nè
+        </footer>
+    </div>
+    
+</body>
+</html>
